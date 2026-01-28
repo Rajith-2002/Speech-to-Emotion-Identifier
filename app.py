@@ -33,9 +33,9 @@ ENCODER_PATH = os.path.join(MODEL_DIR, "label_encoder.pkl")
 # =========================
 # GOOGLE DRIVE FILE URLs
 # =========================
-MODEL_URL = "https://drive.google.com/uc?id=YOUR_MODEL_FILE_ID"
-SCALER_URL = "https://drive.google.com/uc?id=YOUR_SCALER_FILE_ID"
-ENCODER_URL = "https://drive.google.com/uc?id=YOUR_ENCODER_FILE_ID"
+MODEL_URL = "https://drive.google.com/file/d/16lVG2tdusNql4FhrxVE9No6O7OtBt5Bd/view?usp=drive_link"
+SCALER_URL = "https://drive.google.com/file/d/17dMCwWnzVzpcb27uiNG40DIJzWajKAIq/view?usp=drive_link"
+ENCODER_URL = "https://drive.google.com/file/d/1fZ6oPT2kLIRLwC9XCwv_BH7owHC1PBFR/view?usp=drive_link"
 
 # =========================
 # AUTO DOWNLOAD MODELS
