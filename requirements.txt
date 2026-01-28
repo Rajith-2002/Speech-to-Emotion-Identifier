@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-multipart
+jinja2
+
+tensorflow
+librosa
+numpy
+scikit-learn
+joblib
+soundfile
+pydub
+
+gdown
+gunicorn
+setuptools
+wheel

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Speech Emotion Recognition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:disabled {
+      background: #a5afea;
+      cursor: not-allowed;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #f4f6ff;
+    }
+
+    .emotion {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .confidence {
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .loading {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+      display: none;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>🎤 Speech Emotion Recognition</h2>
+
+    <form id="emotionForm" action="/predict" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".wav,.mp3" required />
+
+      <button id="predictBtn" type="submit">Predict Emotion</button>
+
+      <div id="loadingText" class="loading">
+        🔍 Analyzing audio... please wait
+      </div>
+    </form>
+
+    {% if emotion %}
+    <div class="result">
+      <div class="emotion">Emotion: {{ emotion }}</div>
+      <div class="confidence">Confidence: {{ confidence }}%</div>
+
+      <!-- 🎧 AUDIO PLAYER (NO AUTOPLAY, CLICK ONLY) -->
+      {% if audio_file %}
+      <audio controls>
+        <source src="/audio/{{ audio_file }}" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const form = document.getElementById("emotionForm");
+    const button = document.getElementById("predictBtn");
+    const loadingText = document.getElementById("loadingText");
+
+    form.addEventListener("submit", () => {
+      button.disabled = true;
+      button.innerText = "Analyzing...";
+      loadingText.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>

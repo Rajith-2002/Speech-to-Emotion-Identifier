@@ -1,0 +1,19 @@
+# Ignore trained models
+models/
+*.h5
+*.pkl
+
+# Virtual environment
+myvenv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploaded files
+uploads/
+
+# Environment variables
+.env
