@@ -3,7 +3,7 @@ uvicorn
 python-multipart
 jinja2
 
-tensorflow==2.15.0
+tensorflow
 librosa
 numpy
 scikit-learn

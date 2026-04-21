@@ -1,7 +1,11 @@
-# Ignore trained models
-models/
+# Ignore all model files globally
 *.h5
 *.pkl
+
+# BUT include models folder specifically
+!models/
+!models/*.h5
+!models/*.pkl
 
 # Virtual environment
 myvenv/

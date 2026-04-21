@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: speech-emotion-identifier
-    env: python
-    plan: free
-    pythonVersion: 3.10.13
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:$PORT
